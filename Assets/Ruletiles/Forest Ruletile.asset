@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Forest Ruletile
   m_EditorClassIdentifier: 
   m_DefaultSprite: {fileID: 21300000, guid: 4701214810aa60b488e5e67e0491af59, type: 3}
-  m_DefaultGameObject: {fileID: 0}
+  m_DefaultGameObject: {fileID: 8913870626035830877, guid: 41f2da2a7f49e4d29b49b4ceeae89c15, type: 3}
   m_DefaultColliderType: 1
   m_TilingRules:
   - m_Id: 0
