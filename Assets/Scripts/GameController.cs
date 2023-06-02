@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     public Tilemap tilemap;
     public IsometricRuleTile grassTile;
     public IsometricRuleTile logTile;
+    public IsometricRuleTile firePit;
 
     public GameObject lightingPrefab;
 
@@ -23,27 +24,30 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(0))
         {
-
-            var tilePosition = GetTilePosition(0);
-            if (tilemap.HasTile(tilePosition))
+            if (tilemap.HasTile(GetMouseClickTilePosition()))
             {
-                var oldTile = tilemap.GetTile<IsometricRuleTile>(tilePosition);
+                var tile = tilemap.GetTile<IsometricRuleTile>(GetMouseClickTilePosition());
+                if (tile.name == "ForestRuletile") {
+                    OnHarvestForest();
+                    return;
+                }
+            }
 
-                if (oldTile.name == "Forest Ruletile") {
-                    OnHarvestForest(tilePosition);
+            if (tilemap.HasTile(GetMouseClickTilePosition(1)))
+            {
+                var tile = tilemap.GetTile<IsometricRuleTile>(GetMouseClickTilePosition(1));
+                if (tile.name == "LogRuletile")
+                {
+                    OnPutFireOnForest();
+                    return;
                 }
             }
         }
-        if (Input.GetMouseButtonDown(0))
-        {
-            GameObject instantiatedPrefab = Instantiate(lightingPrefab, Vector3.zero, Quaternion.identity);
-            instantiatedPrefab.GetComponent<LightningController>().OnLighting(GetTilePosition(2));
-        }
     }
 
-    public Vector3Int GetTilePosition(int z = 0)
+    public Vector3Int GetMouseClickTilePosition(int z = 0)
     {
         var worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         var tilePosition = grid.WorldToCell(worldPosition);
@@ -51,10 +55,23 @@ public class GameController : MonoBehaviour
         return new Vector3Int(tilePosition.x, tilePosition.y, z);
     }
 
-    void OnHarvestForest(Vector3Int tilePosition)
+    void OnHarvestForest()
     {
         wood += 10;
-        tilemap.SetTile(new Vector3Int(tilePosition.x, tilePosition.y, 0), grassTile);
-        tilemap.SetTile(new Vector3Int(tilePosition.x, tilePosition.y, 1), logTile);
+        tilemap.SetTile(GetMouseClickTilePosition(), grassTile);
+        tilemap.SetTile(GetMouseClickTilePosition(1), logTile);
+    }
+
+    void OnPutFireOnForest()
+    {
+        tilemap.SetTile(GetMouseClickTilePosition(), firePit);
+        tilemap.SetTile(GetMouseClickTilePosition(1), null);
+        OnLightningStrike();
+    }
+
+    void OnLightningStrike()
+    {
+        GameObject instantiatedPrefab = Instantiate(lightingPrefab, Vector3.zero, Quaternion.identity);
+        instantiatedPrefab.GetComponent<LightningController>().OnLighting(GetMouseClickTilePosition(2));
     }
 }

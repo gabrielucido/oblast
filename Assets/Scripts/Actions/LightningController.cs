@@ -44,7 +44,6 @@ public class LightningController : MonoBehaviour
 
     public void OnLighting(Vector3Int position)
     {
-        Debug.Log("chegueii");
         currentLightingDuration = lightningDuration;
         lightningLocation = position;
         Camera.main.GetComponent<CameraShake>().ShakeCamera(.2f);
