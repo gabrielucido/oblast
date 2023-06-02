@@ -4,15 +4,7 @@ using UnityEngine;
 
 public class QuestController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    Queue<Quest> quests = new Queue<Quest>();
+    
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
