@@ -8,7 +8,6 @@ public class TileController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("I'm a tile!!!");
     }
 
     // Update is called once per frame
