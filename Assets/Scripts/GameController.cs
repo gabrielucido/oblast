@@ -48,7 +48,6 @@ public class GameController : MonoBehaviour
             if (gameMode == GameModes.Walk)
             {
                 HandleWalk();
-                Debug.Log("walkk");
             }
             if (gameMode == GameModes.Lightning)
             {
@@ -70,7 +69,7 @@ public class GameController : MonoBehaviour
         if (tilemap.HasTile(GetMouseClickTilePosition()))
         {
             var tile = tilemap.GetTile<IsometricRuleTile>(GetMouseClickTilePosition());
-            if (tile.name == "GroundRuletile")
+            if (tile.name == "GroundRuletile" || tile.name == "LogRuletile" || tile.name == "ForestRuletile" || tile.name == "FirePitRuletile")
             {
                 npcController.SetMoveTarget(Camera.main.ScreenToWorldPoint(Input.mousePosition));
             }
@@ -106,7 +105,7 @@ public class GameController : MonoBehaviour
 
     void HandleBuilding()
     {
-        
+
     }
 
     public Vector3Int GetMouseClickTilePosition(int z = 0)
