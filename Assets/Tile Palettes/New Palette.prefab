@@ -99,7 +99,7 @@ Tilemap:
       m_TileSpriteIndex: 7
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
+      m_TileObjectToInstantiateIndex: 1
       dummyAlignment: 0
       m_AllTileFlags: 1073741826
   - first: {x: 2, y: 0, z: 0}
@@ -109,7 +109,7 @@ Tilemap:
       m_TileSpriteIndex: 8
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
+      m_TileObjectToInstantiateIndex: 1
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
   - first: {x: -1, y: 1, z: 0}
@@ -119,7 +119,7 @@ Tilemap:
       m_TileSpriteIndex: 6
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
+      m_TileObjectToInstantiateIndex: 1
       dummyAlignment: 0
       m_AllTileFlags: 1073741826
   - first: {x: 0, y: 1, z: 0}
@@ -269,6 +269,8 @@ Tilemap:
   m_TileObjectToInstantiateArray:
   - m_RefCount: 1
     m_Data: {fileID: 6294331982618243212, guid: 0f647e30f14ae8e4d9ae20d20fc5bbcd, type: 3}
+  - m_RefCount: 3
+    m_Data: {fileID: 8913870626035830877, guid: 41f2da2a7f49e4d29b49b4ceeae89c15, type: 3}
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -3, y: -4, z: 0}
@@ -397,7 +399,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 12395, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: Palette Settings
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier:
   cellSizing: 100
   m_TransparencySortMode: 3
   m_TransparencySortAxis: {x: 0, y: 1, z: -0.26}
