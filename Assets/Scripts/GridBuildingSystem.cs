@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Tilemaps;
@@ -13,11 +14,15 @@ public class GridBuildingSystem : MonoBehaviour
     public Tilemap MainTilemap;
     public Tilemap TempTilemap;
 
+
+
     public static Dictionary<TileType, TileBase> tileBases = new Dictionary<TileType, TileBase>();
 
     private Building temp;
     private Vector3 prevPos;
     private BoundsInt prevArea;
+
+
 
     #region Unity Methods
 
@@ -33,6 +38,7 @@ public class GridBuildingSystem : MonoBehaviour
         tileBases.Add(TileType.White, Resources.Load<TileBase>(tilePath + "white"));
         tileBases.Add(TileType.Blue, Resources.Load<TileBase>(tilePath + "blue"));
         tileBases.Add(TileType.Red, Resources.Load<TileBase>(tilePath + "red"));
+
     }
 
     private void Update()
@@ -116,9 +122,9 @@ public class GridBuildingSystem : MonoBehaviour
     #region Building Placement
 
     public void InitializeWithBuilding(GameObject building)
-    {
-        temp = Instantiate(building, Vector3.zero, Quaternion.identity).GetComponent<Building>();
-        FollowBuilding();
+    { 
+            temp = Instantiate(building, Vector3.zero, Quaternion.identity).GetComponent<Building>();
+            FollowBuilding();
     }
 
     private void ClearArea()

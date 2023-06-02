@@ -1,10 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.TextCore.Text;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class LightningController : MonoBehaviour
 {
+    public static event Action OnLightingDiscovered;
+
     public float lightningDuration = .2f;
     public float currentLightingDuration = 0f;
     public Vector3Int lightningLocation = new Vector3Int(0, 0, 2);
@@ -14,6 +18,8 @@ public class LightningController : MonoBehaviour
 
     private AudioSource audioSource;
     private bool effectTriggered = false;
+
+    private static bool hasDiscoveredFire;
 
     private void Start()
     {
@@ -49,6 +55,12 @@ public class LightningController : MonoBehaviour
         Camera.main.GetComponent<CameraShake>().ShakeCamera(.2f);
         GetComponent<AudioSource>().Play();
         effectTriggered = true;
+        if (!hasDiscoveredFire)
+        {
+            hasDiscoveredFire = true;
+            OnLightingDiscovered?.Invoke();
+        }
+        
     }
 
     private void CheckDestroy()
