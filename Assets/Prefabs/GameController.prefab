@@ -44,10 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 674d3efcb79be4bbca193acf80fafba4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameMode: 2
   grid: {fileID: 0}
   tilemap: {fileID: 0}
   grassTile: {fileID: 11400000, guid: 8239590fd24513746bc75ddf09a334d1, type: 2}
   logTile: {fileID: 11400000, guid: 4ebe4610a779e4320bf46fed680fefe2, type: 2}
   firePit: {fileID: 11400000, guid: e500e235524ca4f86ad8d22f84a5c8a6, type: 2}
   lightingPrefab: {fileID: 8085094556975116691, guid: 47c98cb4a6345485ba891df6c032f2f6, type: 3}
+  npcController: {fileID: 0}
   wood: 0

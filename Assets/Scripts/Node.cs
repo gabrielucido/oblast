@@ -33,7 +33,7 @@ public class Node
                 case TileTypes.Water:
                     return false;
                 case TileTypes.Forest:
-                    return false;
+                    return true;
                 case TileTypes.Ground:
                     return true;
                 case TileTypes.FirePit:
@@ -55,11 +55,11 @@ public class Node
                 case TileTypes.Ground:
                     return 1;
                 case TileTypes.Forest:
-                    return 8;
+                    return 4;
                 case TileTypes.FirePit:
-                    return 4;
+                    return 2;
                 case TileTypes.Logs:
-                    return 4;
+                    return 3;
                 default:
                     return 0;
             }
