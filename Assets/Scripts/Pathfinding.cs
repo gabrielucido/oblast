@@ -6,10 +6,22 @@ using UnityEngine.Tilemaps;
 
 public class Pathfinding : MonoBehaviour
 {
-    public Tilemap tilemap;
     public Grid grid;
+    public Tilemap tilemap;
 
     public List<Node> nodes = new List<Node>();
+
+    private void Start()
+    {
+        if (grid == null)
+        {
+            grid = GameObject.Find("Grid").GetComponent<Grid>();
+        }
+        if (tilemap == null)
+        {
+            tilemap = GameObject.Find("Tilemap").GetComponent<Tilemap>();
+        }
+    }
 
     public List<Node> GetAllNodes()
     {
@@ -25,12 +37,13 @@ public class Pathfinding : MonoBehaviour
                 Vector3Int position = (new Vector3Int(n, p, (int)tilemap.transform.position.y));
                 if (tilemap.HasTile(position))
                 {
+                    var tile = tilemap.GetTile(position);
                     var tyleType = Node.TileTypes.Ground;
-                    if (tilemap.name == "WaterRuletile")
+                    if (tile.name == "WaterRuletile")
                     {
                         tyleType = Node.TileTypes.Water;
                     }
-                    else if (tilemap.name == "ForestRuletile")
+                    else if (tile.name == "ForestRuletile")
                     {
                         tyleType = Node.TileTypes.Forest;
                     }
@@ -44,6 +57,20 @@ public class Pathfinding : MonoBehaviour
 
         }
         return nodes;
+    }
+
+    public List<Node> GetTypedNodes(Node.TileTypes requestedType)
+    {
+        var allNodes = GetAllNodes();
+        var typedNodes = new List<Node>();
+        foreach (Node node in allNodes)
+        {
+            if (node.tileType == requestedType)
+            {
+                typedNodes.Add(node);
+            }
+        }
+        return typedNodes;
     }
 
     public Node GetNodeByPosition(Vector3Int position)
@@ -113,14 +140,14 @@ public class Pathfinding : MonoBehaviour
                 int newCost = costToReachTile[curNode] + neighbor.cost;
                 if (costToReachTile.ContainsKey(neighbor) == false || newCost < costToReachTile[neighbor])
                 {
-                    //if (neighbor._TileType != Node.TileType.Wall)
-                    //{
-                    costToReachTile[neighbor] = newCost;
-                    int priority = newCost;
-                    frontier.Enqueue(neighbor, priority);
-                    NextTileToGoal[neighbor] = curNode;
-                    //neighbor._Text = costToReachTile[neighbor].ToString();
-                    //}
+                    if (neighbor.isWalkable)
+                    {
+                        costToReachTile[neighbor] = newCost;
+                        int priority = newCost;
+                        frontier.Enqueue(neighbor, priority);
+                        NextTileToGoal[neighbor] = curNode;
+                        //neighbor._Text = costToReachTile[neighbor].ToString();
+                    }
                 }
             }
         }
