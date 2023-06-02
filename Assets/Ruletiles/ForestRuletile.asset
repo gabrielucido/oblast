@@ -10,17 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e6f3fbb560bd6041a202ea918fa4f23, type: 3}
-  m_Name: Ground Ruletile
+  m_Name: ForestRuletile
   m_EditorClassIdentifier: 
-  m_DefaultSprite: {fileID: 21300000, guid: 79bec0c7d5b70434fbb9d87ea757781b, type: 3}
-  m_DefaultGameObject: {fileID: 0}
+  m_DefaultSprite: {fileID: 21300000, guid: 4701214810aa60b488e5e67e0491af59, type: 3}
+  m_DefaultGameObject: {fileID: 8913870626035830877, guid: 41f2da2a7f49e4d29b49b4ceeae89c15, type: 3}
   m_DefaultColliderType: 1
   m_TilingRules:
   - m_Id: 0
     m_Sprites:
-    - {fileID: 21300000, guid: 79bec0c7d5b70434fbb9d87ea757781b, type: 3}
-    - {fileID: 21300000, guid: 6be590cff2bbcdc4aad195f4461213d1, type: 3}
-    m_GameObject: {fileID: 0}
+    - {fileID: 21300000, guid: 4701214810aa60b488e5e67e0491af59, type: 3}
+    - {fileID: 21300000, guid: da3080371415c2d4688d6820d33801d1, type: 3}
+    - {fileID: 21300000, guid: 30f49defdead4ec40bb039a1d22af795, type: 3}
+    m_GameObject: {fileID: 8913870626035830877, guid: 41f2da2a7f49e4d29b49b4ceeae89c15, type: 3}
     m_MinAnimationSpeed: 1
     m_MaxAnimationSpeed: 1
     m_PerlinScale: 0.5
