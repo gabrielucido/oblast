@@ -28,11 +28,21 @@ public class Node
     {
         get
         {
-            if (tileType == TileTypes.Ground)
+            switch (tileType)
             {
-                return true;
+                case TileTypes.Water:
+                    return false;
+                case TileTypes.Forest:
+                    return false;
+                case TileTypes.Ground:
+                    return true;
+                case TileTypes.FirePit:
+                    return true;
+                case TileTypes.Logs:
+                    return true;
+                default:
+                    return true;
             }
-            return false;
         }
     }
 
