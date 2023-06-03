@@ -117,6 +117,9 @@ public class Pathfinding : MonoBehaviour
         Node start = GetNodeByPosition(startPosition);
         Node goal = GetNodeByPosition(goalPosition);
 
+        Debug.Log(start);
+        Debug.Log(goal);
+
         if (start == null || goal == null)
         {
             Debug.Log("Start or Goal is Unreachable!");

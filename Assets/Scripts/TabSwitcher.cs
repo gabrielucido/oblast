@@ -33,7 +33,7 @@ public class TabSwitcher : MonoBehaviour
         {
             int index = i;
             buttons[i].onClick.AddListener(() => SetActiveTab(index));
-         
+
         }
 
 
