@@ -13,6 +13,7 @@ public class Quest : MonoBehaviour
     {
         LightningController.OnLightingDiscovered += OnQuestComplete;
         Building.OnBuild += OnQuestComplete;
+        GameController.WoodCollected += OnQuestComplete;
     }
 
     private void OnQuestComplete()

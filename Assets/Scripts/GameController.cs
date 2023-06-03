@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -15,6 +16,9 @@ public class GameController : MonoBehaviour
     }
 
     public GameModes gameMode = GameModes.Walk;
+
+    public static event Action WoodCollected;
+    private static bool hasCollectedWood;
 
     private Camera mainCamera;
 
@@ -121,6 +125,11 @@ public class GameController : MonoBehaviour
         wood += 10;
         tilemap.SetTile(GetMouseClickTilePosition(), grassTile);
         tilemap.SetTile(GetMouseClickTilePosition(1), logTile);
+        if(!hasCollectedWood  && wood>= 50)
+        {
+            hasCollectedWood = true;
+            WoodCollected?.Invoke();
+        }
     }
 
     void OnPutFireOnForest()
