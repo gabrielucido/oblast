@@ -135,4 +135,23 @@ public class GameController : MonoBehaviour
         GameObject instantiatedPrefab = Instantiate(lightingPrefab, Vector3.zero, Quaternion.identity);
         instantiatedPrefab.GetComponent<LightningController>().OnLighting(GetMouseClickTilePosition(2));
     }
+
+    public void OnClickLightning()
+    {
+        gameMode = GameModes.Lightning;
+    }
+
+    public void OnClickBuilding()
+    {
+        gameMode = GameModes.Building;
+    }
+    public void OnClickLumberjacking()
+    {
+        gameMode = GameModes.Lumberjack;
+    }
+
+    public void OnClickWalk()
+    {
+        gameMode = GameModes.Walk;
+    }
 }
