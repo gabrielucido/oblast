@@ -78,14 +78,11 @@ public class GameController : MonoBehaviour
 
     void HandleLightning()
     {
-        if (tilemap.HasTile(GetMouseClickTilePosition(1)))
+        if (tilemap.HasTile(GetMouseClickTilePosition(0)))
         {
             var tile = tilemap.GetTile<IsometricRuleTile>(GetMouseClickTilePosition(1));
-            if (tile.name == "LogRuletile")
-            {
-                OnPutFireOnForest();
-                return;
-            }
+            
+            OnPutFireOnForest();
         }
     }
 
